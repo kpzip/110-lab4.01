@@ -25,7 +25,10 @@ export class ResultsScreenController extends ScreenController {
 		this.model = new ResultsScreenModel();
 		this.view = new ResultsScreenView(() => this.handlePlayAgainClick());
 
+		// this.gameOverSound = new Audio("/fixed_gameover.wav");
 		this.gameOverSound = new Audio("/gameover.mp3");
+		// Make it a bit quieter
+		// this.gameOverSound.volume = 0.9;
 	}
 
 	/**

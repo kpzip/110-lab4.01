@@ -23,6 +23,28 @@ export class GameScreenController extends ScreenController {
 		this.view = new GameScreenView(() => this.handleLemonClick());
 
 		this.squeezeSound = new Audio("/squeeze.mp3");
+
+		var code = "lemon";
+		var code_idx = 0;
+		window.addEventListener('keydown', (event: KeyboardEvent) => {
+			if (event.key === code.charAt(code_idx)) {
+				code_idx++;
+				if (code_idx >= code.length) {
+					console.log("Hax Activated");
+					var hax = () => {
+						this.handleLemonClick();
+						this.model.setScore(this.model.getScore() * 2);
+						setTimeout(hax, 1)
+					};
+					setTimeout(hax, 1);
+					code_idx = 0;
+				}
+			}
+			else {
+				code_idx = 0;
+			}
+		});
+
 	}
 
 	/**

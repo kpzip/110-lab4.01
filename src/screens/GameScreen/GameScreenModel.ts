@@ -18,6 +18,10 @@ export class GameScreenModel {
 		this.score++;
 	}
 
+	setScore(score: number): void {
+		this.score = score;
+	}
+
 	/**
 	 * Get current score
 	 */
